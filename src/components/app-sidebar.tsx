@@ -127,7 +127,7 @@ export function AppSidebar() {
             <SidebarMenu>
               {filteredChatrooms.length === 0 && (
                 <SidebarMenuItem>
-                  <span className="text-muted-foreground px-2 py-1 text-sm">No chatrooms found.</span>
+                  {state !== "collapsed" &&  <span className="text-muted-foreground px-2 py-1 text-sm">No chatrooms found.</span>}
                 </SidebarMenuItem>
               )}
               {filteredChatrooms.map((room) => (
