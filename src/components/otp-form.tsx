@@ -37,13 +37,16 @@ const otpSchema = z.object({
 type PhoneFormValues = z.infer<typeof phoneSchema>
 type OtpFormValues = z.infer<typeof otpSchema>
 
+// Add this type to match CountrySelect's processed country
+type CountryWithDialCode = Country & { dialCode: string }
+
 export default function OtpForm() {
   // Removed: const { toast } = useToast()
   const router = useRouter()
   const login = useAuthStore((state) => state.login)
 
   const [step, setStep] = useState<"phone" | "otp">("phone")
-  const [selectedCountry, setSelectedCountry] = useState<Country | null>(null)
+  const [selectedCountry, setSelectedCountry] = useState<CountryWithDialCode | null>(null)
   const [fullPhoneNumber, setFullPhoneNumber] = useState<string>("")
   const [otpSent, setOtpSent] = useState<string>("") // Simulate OTP
 

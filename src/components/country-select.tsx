@@ -11,7 +11,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import type { Country } from "../../types"
 
 interface CountrySelectProps {
-  onSelectCountry: (country: Country) => void
+  onSelectCountry: (country: Country & { dialCode: string }) => void
   value: string
   onChange: (value: string) => void
 }
