@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input"
 import { useAuthStore } from "@/lib/store"
 import { OTP_SEND_DELAY, OTP_VERIFY_DELAY } from "@/lib/constants"
 import CountrySelect from "./country-select"
-import type { Country } from "@/types"
+import type { Country } from "../../types"
 
 const phoneSchema = z.object({
   countryCode: z.string().min(1, "Please select a country code."),
