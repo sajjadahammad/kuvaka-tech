@@ -106,7 +106,7 @@ export const useChatStore = create<ChatState>()(
           // and prepend some dummy ones.
           const newDummyMessages: Message[] = Array.from({ length: MESSAGES_PER_PAGE }, (_, i) => ({
             id: uuidv4(),
-            sender: i % 2 === 0 ? "user" : "ai",
+            sender: (i % 2 === 0 ? "user" : "ai") as "user" | "ai",
             text: `Older message ${currentMessagesCount + MESSAGES_PER_PAGE - i} in this chat.`,
             timestamp: new Date(
               new Date().getTime() - (currentMessagesCount + MESSAGES_PER_PAGE - i) * 60 * 1000,
