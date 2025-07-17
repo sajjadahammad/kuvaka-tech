@@ -2,7 +2,7 @@ import { create } from "zustand"
 import { persist, createJSONStorage } from "zustand/middleware"
 import { v4 as uuidv4 } from "uuid"
 
-import type { AuthState, ChatState, Chatroom, Message, User } from "@/types"
+import type { AuthState, ChatState, Chatroom, Message, User } from "../../types"
 import { AI_RESPONSE_DELAY, MESSAGES_PER_PAGE } from "@/lib/constants"
 
 // --- Auth Store ---

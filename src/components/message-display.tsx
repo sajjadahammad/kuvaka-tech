@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import type { Message } from "@/types"
+import type { Message } from "../../types"
 import { cn, formatTimestamp } from "@/lib/utils"
 import { Copy } from "lucide-react"
 import { Button } from "@/components/ui/button"

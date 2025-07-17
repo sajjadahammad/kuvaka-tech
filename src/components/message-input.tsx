@@ -15,7 +15,8 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 // Removed: import { useToast } from "@/components/ui/use-toast"
 import { useChatStore } from "@/lib/store"
-import type { Message } from "@/types"
+import type { Message } from "../../types"
+import Image from "next/image"
 
 const formSchema = z.object({
   message: z.string().max(1000).optional(),
@@ -99,7 +100,7 @@ export default function MessageInput({ chatroomId }: MessageInputProps) {
     <div className="border-t bg-background p-4">
       {imagePreview && (
         <div className="relative mb-4 h-32 w-32 overflow-hidden rounded-md border">
-          <img src={imagePreview || "/placeholder.svg"} alt="Image preview" className="h-full w-full object-cover" />
+          <Image src={imagePreview || "/placeholder.svg"} alt="Image preview" width={100} height={100} className="h-full w-full object-cover" />
           <Button
             variant="destructive"
             size="icon"

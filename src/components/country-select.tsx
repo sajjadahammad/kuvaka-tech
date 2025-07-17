@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Skeleton } from "@/components/ui/skeleton"
-import type { Country } from "@/types"
+import type { Country } from "../../types"
 
 interface CountrySelectProps {
   onSelectCountry: (country: Country) => void
@@ -53,9 +53,14 @@ export default function CountrySelect({ onSelectCountry, value, onChange }: Coun
           .sort((a, b) => a.name.common.localeCompare(b.name.common))
 
         setCountries(processedCountries)
-      } catch (e: any) {
-        setError(e.message)
-        console.error("Failed to fetch countries:", e)
+      } catch (e) {
+        if (e instanceof Error) {
+          setError(e.message)
+          console.error("Failed to fetch countries:", e)
+        } else {
+          setError("An unknown error occurred")
+          console.error("Failed to fetch countries:", e)
+        }
       } finally {
         setLoading(false)
       }
